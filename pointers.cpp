@@ -20,17 +20,14 @@ int main() {
     // 1D arrays
     int cap = 5;   // Only dynamic arrays can have variable sizes
     int* row = new int[cap]{};  // Array of 5 values
-    int* newRow = new int(5); // Array with just the number 5
     int* nums = new int[cap]{1, 2, 3, 4, 5}; // Array with 1, 2, 3, 4, 5
 
     delete[] row; // Deallocation
-    delete[] newRow;
     delete[] nums;
 
     row = nullptr;  // Unnecessary but eh
-    newRow = nullptr;
     nums = nullptr;
-
+    
     // 2D arrays
     int rows = 5;
     int cols = 6;
@@ -50,7 +47,7 @@ int main() {
     // Brute force search (row major) + traversal
     for (int r = 0; r < rows; ++r) {
         for (int c = 0; c < cols; ++c) {
-            cout << map[r][c] << endl;
+            cout << "On row: " << r << ", col: " << c << " with value: " << map[r][c] << endl;
         }
     }
 
@@ -59,4 +56,5 @@ int main() {
         delete[] map[i];
     }
     delete[] map;
+
 }
