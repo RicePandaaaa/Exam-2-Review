@@ -33,7 +33,7 @@ class Pixel {
         void setY(int y);
 
         // Operator overloads
-        friend std::ostream& operator << (ostream& out, const Pixel &pixel);
+        friend std::ostream& operator << (ostream& out, const Pixel &pixel);  // Remove this if doing alternate method (look at line 80)
         Pixel operator + (const Pixel &pixel);
         Pixel operator - (const Pixel &pixel);
         Pixel& operator += (const Pixel &pixel);
@@ -76,6 +76,16 @@ std::ostream& operator << (ostream& out, const Pixel &pixel) {
 
     return out;
 }
+
+// Alternate where there's no declaration in Pixel at all
+/*
+std::ostream& operator << (ostream& out, const Pixel &pixel) {
+    out << "R: " << pixel.getR() << " G: " << pixel.getG() << " B: " << pixel.getB() << endl;
+    out << "X: " << pixel.getX() << " Y: " << pixel.getY() << endl;
+
+    return out;
+}
+*/
 
 Pixel Pixel::operator + (const Pixel &pixel) {
     int new_r = this->r + pixel.r;
